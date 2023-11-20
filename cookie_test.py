@@ -21,7 +21,7 @@ class TestCookieClass(unittest.TestCase):
 
     @patch('builtins.open', new_callable=mock_open, read_data='cookie,timestamp\ncookie1,2023-01-01T10:00:00\ncookie2,2023-01-01T12:00:00\ncookie1,2023-01-01T13:00:00\ncookie2,2023-01-01T15:00:00\n')
     def test_multiple_max_occurrences(self, mock_file):
-        expected_result = ['cookie1', 'cookie2']  # Replace this with the expected output for multiple max occurrences
+        expected_result = ['cookie1', 'cookie2']
         result = Cookie.most_cookie('mocked_file.csv', '2023-01-01')
         self.assertCountEqual(result, expected_result)
         
